@@ -81,10 +81,13 @@ namespace NOT_Space_Invaders
 
             shipBase.EnemyMovement();
 
-            foreach (Animation a in testAnimate)
+            for (int i = 0; i < testAnimate.GetUpperBound(0); i++)
             {
-                a.Update(gameTime);
-                a.FPS = 1;
+                for (int j = 0; j < testAnimate.GetUpperBound(1); j++)
+                {
+                    testAnimate[i,j].Update(gameTime);
+                    testAnimate[i,j].FPS = 1;
+                }
             }
 
             base.Update(gameTime);
@@ -106,7 +109,7 @@ namespace NOT_Space_Invaders
                         enemySprite[i,j].DrawSprite(_spriteBatch);
 
                         testAnimate[i, j].SetPosition(enemySprite[i,j].GetPosition());
-                        testAnimate[i,j].DrawAnimation(_spriteBatch);
+                        testAnimate[i,j].DrawAnimation(_spriteBatch, enemySprite[i,j].GetPosition());
 
                         if (enemySprite[i,j].GetPosition().Intersects(bulletPlayer.GetPosition()))
                         {
@@ -117,7 +120,7 @@ namespace NOT_Space_Invaders
                 }
             }
 
-            bulletPlayer.DrawSprite(_spriteBatch);//Test comment
+            bulletPlayer.DrawSprite(_spriteBatch);
             Player1.DrawSprite(_spriteBatch);
 
             _spriteBatch.End();

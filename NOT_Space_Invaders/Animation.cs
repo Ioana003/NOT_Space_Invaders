@@ -58,9 +58,9 @@ namespace NOT_Space_Invaders
             }
         }
 
-        public void DrawAnimation(SpriteBatch spritebatch)
+        public void DrawAnimation(SpriteBatch spritebatch, Rectangle enemyPositions)
         {
-            spritebatch.Draw(spriteTexture, new Vector2(100, 100), spriteRectangles[frameIndex], Color.White);
+            spritebatch.Draw(spriteTexture, new Vector2(enemyPositions.X, enemyPositions.Y), spriteRectangles[frameIndex], Color.White);
         }
 
     }

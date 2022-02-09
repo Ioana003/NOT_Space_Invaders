@@ -47,7 +47,7 @@ namespace NOT_Space_Invaders
                 leftORright = true;
             }
 
-            else if(enemiesArray[9, 3].GetPosition().X + spriteTexture.Width >= GraphicsDeviceManager.DefaultBackBufferWidth)
+            else if(enemiesArray[enemiesArray.GetUpperBound(0), enemiesArray.GetUpperBound(1)].GetPosition().X + spriteTexture.Width >= GraphicsDeviceManager.DefaultBackBufferWidth)
             {
                 leftORright = false;
             }
