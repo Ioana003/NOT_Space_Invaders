@@ -117,7 +117,7 @@ namespace NOT_Space_Invaders
                 }
             }
 
-            bulletPlayer.DrawSprite(_spriteBatch);
+            bulletPlayer.DrawSprite(_spriteBatch);//Test comment
             Player1.DrawSprite(_spriteBatch);
 
             _spriteBatch.End();
