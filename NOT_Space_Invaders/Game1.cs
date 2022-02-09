@@ -109,7 +109,7 @@ namespace NOT_Space_Invaders
                         enemySprite[i,j].DrawSprite(_spriteBatch);
 
                         testAnimate[i, j].SetPosition(enemySprite[i,j].GetPosition());
-                        testAnimate[i,j].DrawAnimation(_spriteBatch, enemySprite[i,j].GetPosition());
+                        testAnimate[i,j].DrawAnimation(_spriteBatch, enemySprite[i,j].GetPosition());//Whyyy
 
                         if (enemySprite[i,j].GetPosition().Intersects(bulletPlayer.GetPosition()))
                         {
