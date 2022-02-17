@@ -22,15 +22,16 @@ namespace NOT_Space_Invaders
         private int frameIndex = 0; //Counter to see if you're at the number of frames needed
         private int spriteDepth;
 
-        public Animation(Rectangle inPosition, Texture2D inTexture, Color inColour, float inSpriteRotation, float inSpriteScale, SpriteEffects inAnimationEffects, int inFrames) : base(inPosition, inTexture, inColour)
+        public Animation(Rectangle inPosition, Texture2D inTexture, Color inColour, float inSpriteRotation, float inSpriteScale, SpriteEffects inAnimationEffects, int inFrames, int inEnemyTypeAmount, int inEnemyTypeFOR) : base(inPosition, inTexture, inColour)
         {
             spriteTexture = inTexture;
-            int width = inTexture.Width / inFrames; //Find how big each frame should be
+            int height = inTexture.Height / inFrames; //Find how big each frame should be
+            int width = (inTexture.Width - 50) / inEnemyTypeAmount; //Finds the width of each rectangle based on the number of enemies for the spritesheet
             spriteRectangles = new Rectangle[inFrames];
 
             for(int i = 0; i < inFrames; i++)
             {
-                spriteRectangles[i] = new Rectangle(i * width, 0, width, spriteTexture.Height / 2);
+                spriteRectangles[i] = new Rectangle(inEnemyTypeFOR * width + width, i * height, width, height);
             }
         }
 

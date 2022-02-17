@@ -56,11 +56,11 @@ namespace NOT_Space_Invaders
             bulletPlayer = new Bullet(new Rectangle(Window.ClientBounds.Width / 2 - bulletTexture.Width, Window.ClientBounds.Height - bulletTexture.Height - 5, bulletTexture.Width, bulletTexture.Height - 3), bulletTexture, Color.Green, false);
             shipBase = new EnemyShip(new Rectangle(0, 0, enemyTexture[0].Width, enemyTexture[0].Height), enemyTexture[0], Color.White, enemySprite, true, bulletPlayer, enemyTexture);
             
-            for(int a = 0; a < testAnimate.GetUpperBound(0); a++)
+            for(int a = 0; a <= testAnimate.GetUpperBound(0); a++)
             {
-                for (int i = 0; i < testAnimate.GetUpperBound(1); i++)
+                for (int i = 0; i <= testAnimate.GetUpperBound(1); i++)
                 {
-                    testAnimate[a, i] = new Animation(shipBase.GetPosition(), testSpriteSheet, Color.White, 0f, 0f, new SpriteEffects(), 4);
+                    testAnimate[a, i] = new Animation(shipBase.GetPosition(), testSpriteSheet, Color.White, 0f, 0f, new SpriteEffects(), 2, 4, i);
                 }
             }
 
@@ -81,9 +81,9 @@ namespace NOT_Space_Invaders
 
             shipBase.EnemyMovement();
 
-            for (int i = 0; i < testAnimate.GetUpperBound(0); i++)
+            for (int i = 0; i <= testAnimate.GetUpperBound(0); i++)
             {
-                for (int j = 0; j < testAnimate.GetUpperBound(1); j++)
+                for (int j = 0; j <= testAnimate.GetUpperBound(1); j++)
                 {
                     testAnimate[i,j].Update(gameTime);
                     testAnimate[i,j].FPS = 1;
@@ -100,16 +100,16 @@ namespace NOT_Space_Invaders
             // TODO: Add your drawing code here
 
             _spriteBatch.Begin();
-            for(int i = 0; i < enemySprite.GetUpperBound(0); i++)
+            for(int i = 0; i <= enemySprite.GetUpperBound(0); i++)
             {
-                for(int j = 0; j < enemySprite.GetUpperBound(1); j++)
+                for(int j = 0; j <= enemySprite.GetUpperBound(1); j++)
                 {
                     if (enemySprite[i,j].IsAlive)
                     {
-                        enemySprite[i,j].DrawSprite(_spriteBatch);
+                        
 
                         testAnimate[i, j].SetPosition(enemySprite[i,j].GetPosition());
-                        testAnimate[i,j].DrawAnimation(_spriteBatch, enemySprite[i,j].GetPosition());//Whyyy
+                        testAnimate[i,j].DrawAnimation(_spriteBatch, enemySprite[i,j].GetPosition());
 
                         if (enemySprite[i,j].GetPosition().Intersects(bulletPlayer.GetPosition()))
                         {
